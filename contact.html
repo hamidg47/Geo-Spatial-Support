@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - Geo Spatial Support</title>
+  <link rel="icon" href="./img vid/logo.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      color: white;
+    }
+
+    .bg-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      filter: brightness(60%);
+    }
+
+    .contact-title-glass {
+      max-width: 800px;
+      margin: 100px auto 40px;
+      padding: 25px 40px;
+      text-align: center;
+    }
+
+    .contact-title-glass h1 {
+      font-size: 2.8rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .contact-title-glass p {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin: 0;
+    }
+
+    .contact-wrapper {
+      max-width: 1000px;
+      margin: 30px auto 80px;
+      display: flex;
+      gap: 30px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      padding: 40px;
+      flex-wrap: wrap;
+    }
+
+    .info-section {
+      flex: 1;
+      min-width: 280px;
+      padding-left: 10px;
+    }
+
+    .info-section img {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid #8fe4ff;
+      margin-bottom: 15px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .info-section h3,
+    .info-section p {
+      text-align: left;
+      margin-left: 15px;
+      margin-right: 15px;
+    }
+
+    .info-section p {
+      margin: 6px 0;
+      color: #ccc;
+    }
+
+    .info-section i {
+      margin-right: 10px;
+      color: #8fe4ff;
+    }
+
+    .form-section {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .form-section h2 {
+      /* color: #8fe4ff; */
+      margin-bottom: 20px;
+      font-size: 1.6rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 15px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255, 255, 255, 0.15);
+      color: white;
+      font-size: 1rem;
+      outline: none;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+      color: #ccc;
+    }
+
+    .contact-form button {
+      background-color: #1d465c;
+      color: white;
+      padding: 14px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: #163948;
+    }
+
+    /* Review Section */
+    .review-section {
+      max-width: 1000px;
+      margin: 40px auto 80px;
+      text-align: center;
+      color: white;
+    }
+
+    .review-section h2 {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      /* color: #8fe4ff; */
+    }
+
+    .review-cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .review-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border-radius: 20px;
+      padding: 20px;
+      width: 20rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #eee;
+      text-align: left;
+      animation: floatUpDown 4s ease-in-out infinite;
+    }
+
+    .review-card p {
+      margin: 8px 0;
+      color: #ddd;
+    }
+    .review-score {
+    margin-left: auto;
+    color: #ccc;
+    font-weight: bold;
+    font-size: 0.95rem;
+    }
+
+
+    .review-footer {
+      display: flex;
+      align-items: center;
+      margin-top: 5px;
+      gap: 3px;
+    }
+
+    .review-footer img {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      object-fit: cover;
+      /* border: 2px solid #8fe4ff; */
+    }
+
+    .review-info {
+      display: flex;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .review-info h4 {
+      margin: 4px;
+      /* color: #8fe4ff; */
+      font-size: 1rem;
+    }
+
+    .review-info span {
+      color: #cccccc9c;
+      margin-top: 2px;
+    }
+
+    .review-card:nth-child(even) {
+      animation-delay: 1s;
+    }
+
+    .review-score {
+        font-family: monospace;
+        margin-left: auto;
+        color: #ccc;
+        font-weight: 100;
+        font-size: 0.95rem;
+        text-align: right;
+    }
+
+
+    @keyframes floatUpDown {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-wrapper {
+        flex-direction: column;
+        padding: 30px 20px;
+      }
+
+      .contact-title-glass h1 {
+        font-size: 2rem;
+      }
+
+      .contact-title-glass p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+
+      <div id="navbar-placeholder"></div>
+
+  <!-- Background Video -->
+  <video autoplay muted loop class="bg-video">
+    <source src="./img vid/Video.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Glass Title & Subtitle -->
+  <div class="contact-title-glass">
+    <h1>Let's Connect</h1>
+    <p>Have a question, project or opportunity? Reach out anytime — I'm ready to support your geo-spatial vision.</p>
+  </div>
+
+  <!-- Main Glass Box -->
+  <div class="contact-wrapper">
+    
+    <!-- Info Section (Left) -->
+    <div class="info-section">
+      <img src="./img vid/asdasd.jpg" alt="Hamid Gulzar" />
+      <h3>Contact Information</h3>
+      <p><i class="fas fa-user"></i> Hamid Gulzar</p>
+      <p><i class="fas fa-envelope"></i> hamidgul.gis@gmail.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan</p>
+      <p><i class="fab fa-linkedin"></i> 
+        <a href="https://www.linkedin.com/in/hamid-gulzar-534104231" style="color: #8fe4ff;">LinkedIn Profile</a>
+      </p>
+    </div>
+
+    <!-- Form Section (Right) -->
+    <div class="form-section">
+      <h2>Contact</h2>
+<form id="contactForm" class="contact-form">
+  <input type="text" name="from_name" placeholder="Your Full Name" required />
+  <input type="email" name="from_email" placeholder="Your Email Address" required />
+  <input type="text" name="from_subject" placeholder="Subject" required />
+  <textarea name="message" rows="6" placeholder="Your Message..." required></textarea>
+
+  <!-- Optional: If you want to personalize email body with recipient name -->
+  <input type="hidden" name="to_name" value="Hamid Gulzar" />
+
+  <!-- Optional: Used for reply_to header -->
+  <input type="hidden" name="reply_to" value="hamidgul.gis@gmail.com" />
+
+  <button type="submit">Send Message</button>
+</form>
+
+    </div>
+  </div>
+
+  <!-- Review Section -->
+  <div class="review-section">
+    <h2>What People Say</h2>
+    <!-- <div class="review-cards">
+      <div class="review-card">
+        <p>"Amazing support and timely response!"</p>
+        <p>⭐️⭐️⭐️⭐️⭐️</p>
+        <div class="review-footer">
+          <img src="./img vid/logo.png" alt="Client 1">
+          <div class="review-info">
+            <h4>Fatima</h4>
+            <span>Pakistan</span>
+          </div>
+            <h5 class="review-score">66</h5>
+        </div>
+
+
+      <div class="review-card">
+        <p>"Loved the UI design. Really clean."</p>
+        <p>⭐️⭐️⭐️⭐️</p>
+        <div class="review-footer">
+          <img src="./img vid/asdasd.jpg" alt="Client 2">
+          <div class="review-info">
+            <h4>Ahmed</h4>
+            <span>UAE</span>
+          </div>
+            <h5 class="review-score">66</h5>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <p>"Delivered exactly what was promised."</p>
+        <p>⭐️⭐️⭐️⭐️⭐️</p>
+        <div class="review-footer">
+          <img src="./img vid/landsat_ts_cfo.gif" alt="Client 3">
+        <div class="review-info">
+            <h4>Sara</h4>
+            <span>UK</span>
+        </div>
+            <h5 class="review-score">66</h5>
+        </div>
+        
+      </div>
+    </div> -->
+  </div>
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script>
+  // Initialize EmailJS with your public key
+  emailjs.init('uiQl7xE1SqlREHOef'); // add your public key here
+
+  // Form submission handler
+  document.getElementById("contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    emailjs.sendForm('service_uspdftq', 'template_07qt4bj', this) // add your service ID, template ID here
+      .then(function () {
+        alert("✅ Message sent successfully!");
+        document.getElementById("contactForm").reset();
+      }, function (error) {
+        console.error("FAILED...", error);
+        alert("❌ Failed to send message. Please try again.");
+      });
+  });
+</script>
+
+
+  <!-- JS -->
+<script>
+  // Load reviews from localStorage
+  const storedReviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+  const container = document.querySelector(".review-cards");
+
+  storedReviews.forEach(review => {
+    const div = document.createElement("div");
+    div.className = "review-card";
+
+    div.innerHTML = `
+      <p>"${review.message}"</p>
+      <p>${review.stars}</p>
+      <div class="review-footer">
+        <img src="${review.image}" alt="Client">
+        <div class="review-info">
+          <h4>${review.name}</h4>
+          <span>${review.country}</span>
+        </div>
+        <h5 class="review-score">66</h5>
+      </div>
+    `;
+    container.appendChild(div);
+  });
+</script>
+
+
+
+  <script>
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      const placeholder = document.getElementById("navbar-placeholder");
+      placeholder.innerHTML = data;
+
+      // Wait a moment for DOM to update, then initialize nav
+      setTimeout(() => {
+        setupNavbarEvents();
+      }, 0);
+    });
+</script>
+<script src="nav.js"></script>
+
+
+</body>
+</html>
