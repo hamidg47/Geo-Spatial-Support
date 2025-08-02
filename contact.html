@@ -366,13 +366,13 @@
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 <script>
   // Initialize EmailJS with your public key
-  emailjs.init('uiQl7xE1SqlREHOef'); // add your public key here
+  emailjs.init('h6lL_rBaPQddJhbz4'); // add your public key here
 
   // Form submission handler
   document.getElementById("contactForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
-    emailjs.sendForm('service_uspdftq', 'template_07qt4bj', this) // add your service ID, template ID here
+    emailjs.sendForm('service_zszwyyl', 'template_xd2kxxc', this) // add your service ID, template ID here
       .then(function () {
         alert("✅ Message sent successfully!");
         document.getElementById("contactForm").reset();
